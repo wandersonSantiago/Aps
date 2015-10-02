@@ -42,8 +42,7 @@ public class Biometria {
 
 		return encontrou;
 	}
-
-	/* Classe do exemplo da DigitalPersona */
+         /* Classe do exemplo da DigitalPersona */
 	public static DPFPSample getDigital() throws InterruptedException {
 		final LinkedBlockingQueue<DPFPSample> samples = new LinkedBlockingQueue<DPFPSample>();
 		DPFPCapture capture = DPFPGlobal.getCaptureFactory().createCapture();
