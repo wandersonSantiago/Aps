@@ -10,29 +10,43 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
- * @author eduardo
+ * @author Eduardo Ferrari
  */
 @Entity
+@Table(name="area_contaminada")
 public class AreaContaminada {
 
     @Id
     @Column(unique=true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(nullable = false,length = 30)
     private String municipio;
+    @Column(nullable = false,length = 30)
     private String atividade;
+    @Column(nullable = false,length = 30)
     private String denominacoes;
+    @Column(nullable = false,length = 30)
     private String endereco;
+    @Column(nullable = false)
     private double coordX;
+    @Column(nullable = false)
     private double coordY;
+    @Column(nullable = false,length = 30)
     private String classificacao;
+    @Column(nullable = false,length = 30)
     private String etapaGerenciamento;
+    @Column(nullable = false,length = 30)
     private String meioImpactado;
+    @Column(nullable = false,length = 30)
     private String contaminante;
+    @Column(nullable = false)
     private boolean presencaFaselibre;
+    @Column(nullable = false,length = 30)
     private String situacao;
 
     public int getId() {

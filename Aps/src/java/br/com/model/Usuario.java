@@ -5,6 +5,8 @@
  */
 package br.com.model;
 
+import com.digitalpersona.onetouch.DPFPGlobal;
+import com.digitalpersona.onetouch.DPFPTemplate;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,10 +27,13 @@ public class Usuario implements Serializable{
     @Column(unique=true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(nullable = false,length = 50)
     private String usuario;
-    private String senha;
-    private String senhaR;
+    @Column(nullable = false,length = 10)
+    private byte[] digital;
+    @Column(nullable = false,length = 50)
     private String email;
+    @Column(nullable = false,length = 2)
     private int nivel;
 
     public int getId() {
@@ -47,21 +52,6 @@ public class Usuario implements Serializable{
 	this.usuario = usuario;
     }
 
-    public String getSenha() {
-	return senha;
-    }
-
-    public void setSenha(String senha) {
-	this.senha = senha;
-    }
-
-    public String getSenhaR() {
-	return senhaR;
-    }
-
-    public void setSenhaR(String senhaR) {
-	this.senhaR = senhaR;
-    }
 
     public String getEmail() {
 	return email;
@@ -78,7 +68,21 @@ public class Usuario implements Serializable{
     public void setNivel(int nivel) {
 	this.nivel = nivel;
     }
-    
+    public  DPFPTemplate getDigital()
+    {
+     return DPFPGlobal.getTemplateFactory().createTemplate(this.digital);
+    }
+    public void setDigital(DPFPTemplate digital)
+    {
+     this.digital = digital.serialize();
+    }
+	     
+	    
+    @Override
+    public String toString()
+    {
+      return usuario;
+    }
     
     
 }
