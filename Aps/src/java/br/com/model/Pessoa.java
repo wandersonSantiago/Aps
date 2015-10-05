@@ -13,7 +13,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author CRC-TIC01
+ * @author WandersonSantiago
  */
 @Entity
 public class Pessoa implements Serializable {
